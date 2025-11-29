@@ -14,10 +14,10 @@ const navItems = [
 ];
 
 const coachItems = [
-  { href: '/diet-coach', icon: Heart, label: 'Diet Coach' },
-  { href: '/fitness-coach', icon: Dumbbell, label: 'Fitness Coach' },
-  { href: '/mindfulness-coach', icon: Brain, label: 'Mindfulness Coach' },
-  { href: '/sleep-coach', icon: Bed, label: 'Sleep Coach' },
+  { href: '/diet-coach', icon: Heart, label: 'Thabo (Diet)' },
+  { href: '/fitness-coach', icon: Dumbbell, label: 'Muzi (Fitness)' },
+  { href: '/mindfulness-coach', icon: Brain, label: 'Zola (Mindfulness)' },
+  { href: '/sleep-coach', icon: Bed, label: 'Amahle (Sleep)' },
 ]
 
 export default function Sidebar() {

@@ -1,4 +1,15 @@
-import { Send, Plus, Mic, SlidersHorizontal, ChevronDown, Zap, BrainCircuit, Search } from 'lucide-react';
+'use client';
+import {
+  Send,
+  Plus,
+  Mic,
+  SlidersHorizontal,
+  ChevronDown,
+  Zap,
+  BrainCircuit,
+  Search,
+  Shield,
+} from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import {
@@ -24,17 +35,6 @@ export default function ChatInput({ prompt, setPrompt }: ChatInputProps) {
           className="bg-transparent border-0 pr-12 resize-none focus-visible:ring-0 text-base"
           rows={1}
         />
-        <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center">
-          {prompt ? (
-            <Button size="icon" variant="ghost">
-              <Send className="h-5 w-5" />
-            </Button>
-          ) : (
-            <Button variant="ghost" size="icon">
-              <Mic className="h-5 w-5" />
-            </Button>
-          )}
-        </div>
       </div>
       <div className="flex items-center justify-between mt-2">
         <div className="flex items-center gap-1">
@@ -42,14 +42,18 @@ export default function ChatInput({ prompt, setPrompt }: ChatInputProps) {
             <Plus className="h-5 w-5" />
           </Button>
           <Button variant="ghost" size="sm">
-            <SlidersHorizontal className="h-5 w-5" />
-            <span className="ml-2">Tools</span>
+            <SlidersHorizontal className="h-5 w-5 mr-2" />
+            Tools
           </Button>
         </div>
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="bg-secondary text-secondary-foreground rounded-full">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="bg-secondary text-secondary-foreground rounded-full"
+              >
                 Fast <ChevronDown className="h-4 w-4 ml-1" />
               </Button>
             </DropdownMenuTrigger>
@@ -68,6 +72,15 @@ export default function ChatInput({ prompt, setPrompt }: ChatInputProps) {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          {prompt ? (
+            <Button size="icon" variant="ghost">
+              <Send className="h-5 w-5" />
+            </Button>
+          ) : (
+            <Button variant="ghost" size="icon">
+              <Mic className="h-5 w-5" />
+            </Button>
+          )}
         </div>
       </div>
     </div>
