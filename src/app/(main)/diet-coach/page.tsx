@@ -11,5 +11,9 @@ const dietActionChips = [
 ];
 
 export default function DietCoachPage() {
-  return <GeminiChat title="Chat with Thabo (Diet)" actionChips={dietActionChips} />;
+  return (
+     <div className="flex flex-col items-center justify-center h-full">
+        <GeminiChat title="Chat with Thabo (Diet)" actionChips={dietActionChips} />
+    </div>
+  );
 }

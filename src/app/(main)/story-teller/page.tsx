@@ -11,5 +11,9 @@ const storyTellerActionChips = [
 ];
 
 export default function StoryTellerPage() {
-  return <GeminiChat title="Chat with Lebo (Storyteller)" actionChips={storyTellerActionChips} />;
+  return (
+     <div className="flex flex-col items-center justify-center h-full">
+        <GeminiChat title="Chat with Lebo (Storyteller)" actionChips={storyTellerActionChips} />
+    </div>
+  );
 }

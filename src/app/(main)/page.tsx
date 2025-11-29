@@ -12,5 +12,9 @@ const homeActionChips = [
 ];
 
 export default function Home() {
-  return <GeminiChat title="Hello, Tholumuzi" actionChips={homeActionChips} />;
+  return (
+    <div className="flex flex-col items-center justify-center h-full">
+        <GeminiChat title="Hello, Tholumuzi" actionChips={homeActionChips} />
+    </div>
+  );
 }

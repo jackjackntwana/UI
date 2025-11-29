@@ -11,5 +11,9 @@ const fitnessActionChips = [
 ];
 
 export default function FitnessCoachPage() {
-  return <GeminiChat title="Chat with Muzi (Fitness)" actionChips={fitnessActionChips} />;
+  return (
+     <div className="flex flex-col items-center justify-center h-full">
+        <GeminiChat title="Chat with Muzi (Fitness)" actionChips={fitnessActionChips} />
+    </div>
+  );
 }

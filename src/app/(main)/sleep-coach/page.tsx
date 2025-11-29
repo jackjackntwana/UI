@@ -11,5 +11,9 @@ const sleepActionChips = [
 ];
 
 export default function SleepCoachPage() {
-  return <GeminiChat title="Chat with Amahle (Sleep)" actionChips={sleepActionChips} />;
+  return (
+     <div className="flex flex-col items-center justify-center h-full">
+        <GeminiChat title="Chat with Amahle (Sleep)" actionChips={sleepActionChips} />
+    </div>
+  );
 }

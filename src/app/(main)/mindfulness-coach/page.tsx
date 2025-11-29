@@ -11,5 +11,9 @@ const mindfulnessActionChips = [
 ];
 
 export default function MindfulnessCoachPage() {
-  return <GeminiChat title="Chat with Zola (Mindfulness)" actionChips={mindfulnessActionChips} />;
+  return (
+     <div className="flex flex-col items-center justify-center h-full">
+        <GeminiChat title="Chat with Zola (Mindfulness)" actionChips={mindfulnessActionChips} />
+    </div>
+  );
 }

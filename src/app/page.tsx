@@ -1,5 +1,10 @@
-import MainPage from './(main)/page';
+import MainLayout from '@/app/(main)/layout';
+import Home from '@/app/(main)/page';
 
-export default function Home() {
-  return <MainPage />;
+export default function HomePage() {
+  return (
+    <MainLayout>
+      <Home />
+    </MainLayout>
+  );
 }
