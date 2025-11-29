@@ -2,21 +2,11 @@
 'use client';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Newspaper } from 'lucide-react';
+import { Newspaper, BrainCircuit } from 'lucide-react';
+import { synthesizeHealthcareNews } from '@/ai/flows/synthesize-healthcare-news';
+import { useState, useEffect } from 'react';
 
-const newsItems = [
-  {
-    category: 'Asthma Research',
-    title: 'New Study Identifies Key Genetic Marker for Severe Asthma',
-    source: 'New England Journal of Medicine',
-    summary: 'Researchers have discovered a genetic variation that significantly increases the risk of severe, treatment-resistant asthma, paving the way for targeted therapies.',
-  },
-  {
-    category: 'Healthy Living',
-    title: 'The Mediterranean Diet: More Than Just Heart Health',
-    source: 'Wellness Today',
-    summary: 'A recent meta-analysis suggests the Mediterranean diet can improve lung function and reduce asthma flare-ups in adults.',
-  },
+const staticNewsItems = [
   {
     category: 'Technology',
     title: 'Smart Inhalers Are Changing Asthma Management',
@@ -32,22 +22,54 @@ const newsItems = [
 ];
 
 export default function LatestNewsPage() {
+    const [aiNews, setAiNews] = useState<string | null>(null);
+
+    useEffect(() => {
+        async function getNews() {
+            try {
+                const res = await synthesizeHealthcareNews({ interests: "Asthma Research, Healthy Living" });
+                setAiNews(res.newsDigest);
+            } catch (error) {
+                console.error("Error fetching AI news:", error);
+                setAiNews("Could not load AI-synthesized news. Please check your connection and try again.");
+            }
+        }
+        getNews();
+    }, []);
+
+
   return (
     <div className="w-full max-w-4xl mx-auto space-y-8 animate-fade-in">
-        <div className="flex items-center gap-4">
-            <Newspaper className="h-8 w-8" />
+        <div className="flex items-center justify-between gap-4 mb-8">
             <h1 className="text-3xl font-bold animate-gradient-text">Your Personalized News Digest</h1>
         </div>
-        <p className="text-muted-foreground">Curated news and insights related to Asthma and healthy living.</p>
+        <p className="text-muted-foreground -mt-4">
+            Knowledge is power, especially when it comes to your health. This digest, curated by AI, brings you the latest and most relevant news based on your interests. We sift through the noise to deliver concise, trustworthy information that can support your health journey.
+        </p>
+
+        <Card className="rounded-none shadow-md bg-secondary border-l-4 border-primary">
+            <CardHeader>
+                <CardTitle className='flex items-center'><BrainCircuit className="mr-2 h-5 w-5 text-primary"/>AI-Synthesized Health Briefing</CardTitle>
+                <CardDescription>Based on your interest in Asthma and Healthy Living</CardDescription>
+            </CardHeader>
+            <CardContent>
+                {aiNews ? (
+                <p className='text-secondary-foreground'>{aiNews}</p>
+                ) : (
+                <p className='text-muted-foreground'>Generating your personalized news briefing...</p>
+                )}
+            </CardContent>
+        </Card>
+
         <div className="grid gap-6">
-            {newsItems.map((item, index) => (
-                <Card key={index} className="rounded-none shadow-md">
+            {staticNewsItems.map((item, index) => (
+                <Card key={index} className="rounded-none shadow-md flex flex-col">
                     <CardHeader>
                         <p className="text-sm font-semibold text-primary">{item.category}</p>
                         <CardTitle className="text-xl">{item.title}</CardTitle>
                         <CardDescription>Source: {item.source}</CardDescription>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="flex-grow">
                         <p className="text-muted-foreground">{item.summary}</p>
                     </CardContent>
                     <CardFooter>
