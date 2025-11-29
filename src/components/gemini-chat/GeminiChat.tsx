@@ -23,7 +23,7 @@ export default function GeminiChat({ title, actionChips }: GeminiChatPageProps) 
           <ChatInput prompt={prompt} setPrompt={setPrompt} />
           <ActionChips actions={actionChips} />
           <p className="text-xs text-muted-foreground text-center mt-4">
-            Your chats aren’t used to improve our models. Ubuntu can make mistakes, so double-check it. Your privacy on Ubuntu
+            Disclaimer: This is an AI-powered assistant and may produce inaccurate information. It is not a substitute for professional medical advice. Always consult with a healthcare professional for any medical concerns. Your chats aren’t used to improve our models.
           </p>
         </div>
     </div>
