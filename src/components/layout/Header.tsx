@@ -21,12 +21,12 @@ export default function Header() {
           {isMenuOpen ? <X /> : <Menu />}
         </Button>
         <Link href="/">
-          <h1 className="text-xl font-bold cursor-pointer">Ubuntu</h1>
+          <h1 className="text-xl font-bold cursor-pointer animate-gradient-text">Ubuntu</h1>
         </Link>
       </div>
 
       <div className="flex items-center gap-4">
-        <Button variant="outline">PRO</Button>
+        <Button variant="outline">Asthma</Button>
         <Avatar>
           <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
