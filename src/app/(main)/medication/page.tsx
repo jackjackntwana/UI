@@ -1,3 +1,4 @@
+
 'use client';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -13,39 +14,41 @@ const medications = [
 
 export default function MedicationPage() {
   return (
-    <div className="container mx-auto py-8">
-      <Card className="w-full max-w-4xl mx-auto">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="flex items-center text-2xl">
-            <Pill className="mr-3 h-6 w-6" /> My Medications
-          </CardTitle>
-          <Button>
-            <PlusCircle className="mr-2 h-4 w-4" /> Add Medication
-          </Button>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Medication</TableHead>
-                <TableHead>Type</TableHead>
-                <TableHead>Dosage</TableHead>
-                <TableHead>Frequency</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {medications.map((med) => (
-                <TableRow key={med.name}>
-                  <TableCell className="font-medium">{med.name}</TableCell>
-                  <TableCell>{med.type}</TableCell>
-                  <TableCell>{med.dosage}</TableCell>
-                  <TableCell>{med.frequency}</TableCell>
+    <div className="w-full max-w-4xl mx-auto space-y-8 animate-fade-in">
+        <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+                <Pill className="h-8 w-8" />
+                <h1 className="text-3xl font-bold animate-gradient-text">My Medications</h1>
+            </div>
+            <Button>
+                <PlusCircle className="mr-2 h-4 w-4" /> Add Medication
+            </Button>
+        </div>
+        
+        <Card className="rounded-none shadow-md">
+            <CardContent className="p-0">
+            <Table>
+                <TableHeader>
+                <TableRow>
+                    <TableHead>Medication</TableHead>
+                    <TableHead>Type</TableHead>
+                    <TableHead>Dosage</TableHead>
+                    <TableHead>Frequency</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+                </TableHeader>
+                <TableBody>
+                {medications.map((med) => (
+                    <TableRow key={med.name}>
+                    <TableCell className="font-medium">{med.name}</TableCell>
+                    <TableCell>{med.type}</TableCell>
+                    <TableCell>{med.dosage}</TableCell>
+                    <TableCell>{med.frequency}</TableCell>
+                    </TableRow>
+                ))}
+                </TableBody>
+            </Table>
+            </CardContent>
+        </Card>
     </div>
   );
 }

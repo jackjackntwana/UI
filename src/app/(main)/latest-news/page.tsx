@@ -1,3 +1,4 @@
+
 'use client';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -32,17 +33,15 @@ const newsItems = [
 
 export default function LatestNewsPage() {
   return (
-    <div className="container mx-auto py-8">
-      <Card className="w-full max-w-4xl mx-auto">
-        <CardHeader>
-          <CardTitle className="flex items-center text-2xl">
-            <Newspaper className="mr-3 h-6 w-6" /> Your Personalized News Digest
-          </CardTitle>
-          <CardDescription>Curated news and insights related to Asthma and healthy living.</CardDescription>
-        </CardHeader>
-        <CardContent className="grid gap-6">
+    <div className="w-full max-w-4xl mx-auto space-y-8 animate-fade-in">
+        <div className="flex items-center gap-4">
+            <Newspaper className="h-8 w-8" />
+            <h1 className="text-3xl font-bold animate-gradient-text">Your Personalized News Digest</h1>
+        </div>
+        <p className="text-muted-foreground">Curated news and insights related to Asthma and healthy living.</p>
+        <div className="grid gap-6">
             {newsItems.map((item, index) => (
-                <Card key={index}>
+                <Card key={index} className="rounded-none shadow-md">
                     <CardHeader>
                         <p className="text-sm font-semibold text-primary">{item.category}</p>
                         <CardTitle className="text-xl">{item.title}</CardTitle>
@@ -56,8 +55,7 @@ export default function LatestNewsPage() {
                     </CardFooter>
                 </Card>
             ))}
-        </CardContent>
-      </Card>
+        </div>
     </div>
   );
 }

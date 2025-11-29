@@ -1,3 +1,4 @@
+
 'use client';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -36,30 +37,25 @@ const alerts = [
 
 export default function AlertsPage() {
   return (
-    <div className="container mx-auto py-8">
-      <Card className="w-full max-w-4xl mx-auto">
-        <CardHeader>
-          <CardTitle className="flex items-center text-2xl">
-            <BellRing className="mr-3 h-6 w-6" /> Alerts & Reminders
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            {alerts.map((alert, index) => (
-              <Alert key={index} variant={alert.variant} className="flex items-start">
-                <alert.icon className="h-5 w-5 mr-4 mt-1" />
-                <div className="w-full">
-                  <div className="flex justify-between items-center">
-                    <AlertTitle>{alert.title}</AlertTitle>
-                    <span className="text-xs text-muted-foreground">{alert.time}</span>
-                  </div>
-                  <AlertDescription>{alert.description}</AlertDescription>
-                </div>
-              </Alert>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+    <div className="w-full max-w-4xl mx-auto animate-fade-in">
+       <div className="flex items-center gap-4 mb-8">
+        <BellRing className="h-8 w-8" />
+        <h1 className="text-3xl font-bold animate-gradient-text">Alerts & Reminders</h1>
+      </div>
+      <div className="space-y-4">
+        {alerts.map((alert, index) => (
+          <Alert key={index} variant={alert.variant} className="flex items-start rounded-none shadow-md">
+            <alert.icon className="h-5 w-5 mr-4 mt-1" />
+            <div className="w-full">
+              <div className="flex justify-between items-center">
+                <AlertTitle>{alert.title}</AlertTitle>
+                <span className="text-xs text-muted-foreground">{alert.time}</span>
+              </div>
+              <AlertDescription>{alert.description}</AlertDescription>
+            </div>
+          </Alert>
+        ))}
+      </div>
     </div>
   );
 }
