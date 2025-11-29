@@ -1,6 +1,5 @@
-'use client';
-import GeminiChat from '@/components/gemini-chat/GeminiChat';
+import MainPage from './(main)/page';
 
 export default function Home() {
-  return <GeminiChat />;
+  return <MainPage />;
 }
