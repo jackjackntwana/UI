@@ -93,31 +93,38 @@ export default function WeeklySummaryPage() {
   const [providerSummary, setProviderSummary] = useState('');
 
   const handleGenerateSummary = async () => {
-    const summary = await generateProviderSummary({
-        healthNarrative: 'The user has been managing their asthma and reports feeling generally well this week, with some fluctuations in mood and sleep.',
-        vitalSigns: JSON.stringify(vitalData, null, 2),
-        medicationList: 'Albuterol (as needed), Fluticasone (daily)',
-        keyEvents: 'One instance of increased shortness of breath on Thursday, possibly related to poor sleep and higher pollen counts.'
-    });
-    setProviderSummary(summary.providerSummary);
+    try {
+        const summary = await generateProviderSummary({
+            healthNarrative: 'The user has been managing their asthma and reports feeling generally well this week, with some fluctuations in mood and sleep.',
+            vitalSigns: JSON.stringify(vitalData, null, 2),
+            medicationList: 'Albuterol (as needed), Fluticasone (daily)',
+            keyEvents: 'One instance of increased shortness of breath on Thursday, possibly related to poor sleep and higher pollen counts.'
+        });
+        setProviderSummary(summary.providerSummary);
+    } catch (error) {
+        console.error("Error generating provider summary:", error);
+        setProviderSummary("Could not generate summary. Please try again.");
+    }
   };
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-8 animate-fade-in">
         <div className="flex items-center justify-between gap-4 mb-8">
             <h1 className="text-3xl font-bold animate-gradient-text">Weekly Health Summary</h1>
-            <Button size="lg" className="shadow-lg" onClick={handleGenerateSummary}>
+            <Button size="lg" className="shadow-lg rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105" onClick={handleGenerateSummary}>
                 <Share2 className="mr-2 h-4 w-4" /> Generate & Share
             </Button>
         </div>
-         <p className="text-muted-foreground -mt-4">
+         <div className="text-muted-foreground space-y-2">
+           <p>
            This summary provides a comprehensive overview of your health data from the past week. By visualizing your vitals, sleep, and mood, you can uncover trends, understand the interplay between different aspects of your health, and make more informed decisions.
+           </p>
              <ul className="list-disc pl-5 mt-2 space-y-1">
                 <li><span className='font-semibold'>Look for Patterns:</span> Do you notice a connection between your sleep quality and your mood the next day? Does your blood pressure change after certain activities?</li>
                 <li><span className='font-semibold'>Celebrate Progress:</span> Acknowledge the days you met your goals and felt your best. Consistency is key.</li>
                 <li><span className='font-semibold'>Share with Your Provider:</span> Use the "Generate & Share" button to create a concise summary for your doctor, facilitating more productive conversations about your care.</li>
             </ul>
-        </p>
+        </div>
 
       {providerSummary && (
         <Card className="rounded-none shadow-md">

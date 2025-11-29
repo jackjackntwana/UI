@@ -53,9 +53,11 @@ export default function AlertsPage() {
        <div className="flex items-center gap-4 mb-8">
         <h1 className="text-3xl font-bold animate-gradient-text">Alerts & Reminders</h1>
       </div>
-        <p className="text-muted-foreground">
-        Stay ahead of your health with personalized, AI-powered alerts. Below you'll find real-time updates and proactive advice based on your condition, local weather, and environmental factors. These insights are designed to help you anticipate challenges and manage your health more effectively.
-        </p>
+        <div className="text-muted-foreground">
+            <p>
+                Stay ahead of your health with personalized, AI-powered alerts. Below you'll find real-time updates and proactive advice based on your condition, local weather, and environmental factors. These insights are designed to help you anticipate challenges and manage your health more effectively.
+            </p>
+        </div>
         {aiAlert ? (
             <Alert variant='default' className='shadow-md rounded-none border-l-4 border-primary'>
                  <Wind className="h-5 w-5 mr-4 mt-1" />
@@ -72,6 +74,7 @@ export default function AlertsPage() {
             </Alert>
         ) : (
              <Alert className='shadow-md rounded-none'>
+                 <Wind className="h-5 w-5 mr-4 mt-1" />
                  <div className='w-full'>
                     <AlertTitle>Loading AI-powered advice...</AlertTitle>
                     <AlertDescription>Please wait while we generate personalized alerts for you.</AlertDescription>

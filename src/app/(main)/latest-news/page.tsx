@@ -43,9 +43,11 @@ export default function LatestNewsPage() {
         <div className="flex items-center justify-between gap-4 mb-8">
             <h1 className="text-3xl font-bold animate-gradient-text">Your Personalized News Digest</h1>
         </div>
-        <p className="text-muted-foreground -mt-4">
-            Knowledge is power, especially when it comes to your health. This digest, curated by AI, brings you the latest and most relevant news based on your interests. We sift through the noise to deliver concise, trustworthy information that can support your health journey.
-        </p>
+        <div className="text-muted-foreground">
+            <p>
+                Knowledge is power, especially when it comes to your health. This digest, curated by AI, brings you the latest and most relevant news based on your interests. We sift through the noise to deliver concise, trustworthy information that can support your health journey.
+            </p>
+        </div>
 
         <Card className="rounded-none shadow-md bg-secondary border-l-4 border-primary">
             <CardHeader>
@@ -73,7 +75,7 @@ export default function LatestNewsPage() {
                         <p className="text-muted-foreground">{item.summary}</p>
                     </CardContent>
                     <CardFooter>
-                        <Button variant="outline">Read More</Button>
+                        <Button variant="link" className="text-primary hover:text-primary/80">Read More</Button>
                     </CardFooter>
                 </Card>
             ))}

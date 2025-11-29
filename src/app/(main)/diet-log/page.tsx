@@ -5,6 +5,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Button } from '@/components/ui/button';
 import { Fish, Flame, PlusCircle } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import { useState, useEffect } from 'react';
+import { generatePersonalizedHealthNarrative } from '@/ai/flows/generate-personalized-health-narrative';
 
 const dietLog = [
   { time: '8:00 AM', meal: 'Breakfast', item: 'Oatmeal with berries', calories: 350, protein: 10, carbs: 60, fat: 8 },
@@ -27,23 +29,58 @@ export default function DietLogPage() {
   const carbGoal = 250;
   const fatGoal = 65;
 
+  const [narrative, setNarrative] = useState('');
+
+  useEffect(() => {
+    async function getNarrative() {
+      try {
+        const res = await generatePersonalizedHealthNarrative({
+          vitals: {
+            bloodPressure: "120/80",
+            glucose: "95 mg/dL",
+            sleep: "7.5 hours",
+            moodScore: "8/10",
+          },
+          dietaryGoalAdherence: '85%',
+          lastMealMacroBreakdown: 'Protein: 45g, Carbs: 40g, Fat: 22g',
+          pivotalMomentSummary: 'Completed a full week of consistent logging.',
+          weatherAlert: 'None',
+          airQualityAlert: 'None',
+          pollenAlert: 'None',
+          activityLevel: 'Moderate',
+        });
+        setNarrative(res.narrative);
+      } catch (error) {
+        console.error("Error fetching AI narrative:", error);
+        setNarrative("Could not load AI-powered advice. Please check your connection and try again.");
+      }
+    }
+    getNarrative();
+  }, []);
+
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-8 animate-fade-in">
         <div className="flex items-center justify-between gap-4 mb-8">
             <h1 className="text-3xl font-bold animate-gradient-text">Diet & Activity Log</h1>
-             <Button size="lg" className='shadow-lg'>
+             <Button size="lg" className="shadow-lg rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105">
                 <PlusCircle className="mr-2 h-4 w-4" /> Add Entry
             </Button>
         </div>
-        <p className="text-muted-foreground -mt-4">
-            Tracking your food intake and physical activity is a powerful way to understand your body's needs and make informed decisions. This log provides a clear visual breakdown of your daily habits, helping you see where you're excelling and where you can improve.
-             <ul className="list-disc pl-5 mt-2 space-y-1">
-                <li><span className='font-semibold'>Consistent Logging:</span> Aim to log your meals and activities every day to build a comprehensive health picture.</li>
-                <li><span className='font-semibold'>Macro Balance:</span> Pay attention to the balance of protein, carbs, and fats to ensure you're fueling your body optimally.</li>
-                <li><span className='font-semibold'>Stay Active:</span> Even short bursts of activity can make a big difference in your daily energy expenditure and overall well-being.</li>
-            </ul>
-        </p>
+        <div className="text-muted-foreground space-y-2">
+          {narrative ? (
+              <div>
+                  <p className='-mt-4'>{narrative}</p>
+                  <ul className="list-disc pl-5 mt-4 space-y-1">
+                      <li><span className='font-semibold'>Consistent Logging:</span> Aim to log your meals and activities every day to build a comprehensive health picture.</li>
+                      <li><span className='font-semibold'>Macro Balance:</span> Pay attention to the balance of protein, carbs, and fats to ensure you're fueling your body optimally.</li>
+                      <li><span className='font-semibold'>Stay Active:</span> Even short bursts of activity can make a big difference in your daily energy expenditure and overall well-being.</li>
+                  </ul>
+              </div>
+          ) : (
+              <p>Loading AI-powered advice...</p>
+          )}
+        </div>
 
         <Card className="rounded-none shadow-md">
             <CardHeader>

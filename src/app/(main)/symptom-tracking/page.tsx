@@ -37,14 +37,16 @@ export default function SymptomTrackingPage() {
       <div className="flex items-center justify-between gap-4 mb-8">
         <h1 className="text-3xl font-bold animate-gradient-text">Track Your Symptoms</h1>
       </div>
-      <p className="text-muted-foreground -mt-4">
-        Logging how you feel each day provides crucial data for understanding your health trends. By noting your symptoms, you can identify patterns, recognize triggers, and have more productive conversations with your healthcare provider.
+      <div className="text-muted-foreground space-y-2">
+        <p>
+            Logging how you feel each day provides crucial data for understanding your health trends. By noting your symptoms, you can identify patterns, recognize triggers, and have more productive conversations with your healthcare provider.
+        </p>
          <ul className="list-disc pl-5 mt-2 space-y-1">
             <li><span className='font-semibold'>Be Consistent:</span> Daily tracking, even when you feel good, provides a more complete picture.</li>
             <li><span className='font-semibold'>Use the Scale:</span> The 0-10 scale helps quantify your symptoms, making it easier to spot changes over time.</li>
             <li><span className='font-semibold'>Add Notes:</span> Context is key. Did something trigger your symptoms? Did you try a new activity? Note it down.</li>
         </ul>
-      </p>
+      </div>
       
         <Card className="rounded-none shadow-md">
             <CardHeader>
@@ -141,7 +143,7 @@ export default function SymptomTrackingPage() {
       </div>
 
       <div className="flex justify-end">
-          <Button size="lg" className="w-full md:w-auto shadow-lg">
+          <Button size="lg" className="w-full md:w-auto shadow-lg rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105">
               <Save className="mr-2 h-4 w-4" /> Save Log Entry
           </Button>
       </div>
