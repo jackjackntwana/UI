@@ -1,20 +1,20 @@
 'use client';
 import GeminiChat from '@/components/gemini-chat/GeminiChat';
-import { Carrot, Dumbbell, TrendingUp, FileText, ChefHat, BrainCircuit } from 'lucide-react';
+import { Heart, Droplet, Brain, Apple, Foot, Activity } from 'lucide-react';
 
 const homeActionChips = [
-  { label: 'Suggest a diet', icon: Carrot, color: 'text-orange-500' },
-  { label: 'Create a workout plan', icon: Dumbbell, color: 'text-cyan-500' },
-  { label: 'Track my progress', icon: TrendingUp, color: 'text-green-500' },
-  { label: 'Explain a condition', icon: FileText, color: 'text-blue-500' },
-  { label: 'Generate a recipe', icon: ChefHat, color: 'text-yellow-500' },
-  { label: 'Teach me about mindfulness', icon: BrainCircuit, color: 'text-purple-500' },
+  { label: 'Explain blood sugar levels', icon: Droplet, color: 'text-blue-500' },
+  { label: 'What are the symptoms of a heart attack?', icon: Heart, color: 'text-red-500' },
+  { label: 'Suggest a heart-healthy meal', icon: Apple, color: 'text-green-500' },
+  { label: 'How does diabetes affect the brain?', icon: Brain, color: 'text-purple-500' },
+  { label: 'Show me exercises for cardiovascular health', icon: Activity, color: 'text-orange-500' },
+  { label: 'Tips for diabetic foot care', icon: Foot, color: 'text-yellow-500' },
 ];
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-full">
-        <GeminiChat title="Unjani, Tholumuzi?" actionChips={homeActionChips} />
+        <GeminiChat title="Your Health Assistant" actionChips={homeActionChips} />
     </div>
   );
 }
