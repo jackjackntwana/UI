@@ -1,4 +1,4 @@
-import { Send, Plus, Mic, SlidersHorizontal, ChevronDown, Shield, Zap, BrainCircuit, Search } from 'lucide-react';
+import { Send, Plus, Mic, SlidersHorizontal, ChevronDown, Zap, BrainCircuit, Search } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import {
@@ -17,12 +17,11 @@ export default function ChatInput({ prompt, setPrompt }: ChatInputProps) {
   return (
     <div className="bg-card p-4 rounded-xl shadow-lg border animate-gradient-border transition-all duration-500 w-full">
       <div className="relative flex items-center">
-        <Shield className="absolute left-4 h-5 w-5 text-muted-foreground" />
         <Textarea
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="Enter a prompt here"
-          className="bg-transparent border-0 pl-12 pr-12 resize-none focus-visible:ring-0 text-base"
+          className="bg-transparent border-0 pr-12 resize-none focus-visible:ring-0 text-base"
           rows={1}
         />
         <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center">
@@ -30,7 +29,11 @@ export default function ChatInput({ prompt, setPrompt }: ChatInputProps) {
             <Button size="icon" variant="ghost">
               <Send className="h-5 w-5" />
             </Button>
-          ) : null}
+          ) : (
+            <Button variant="ghost" size="icon">
+              <Mic className="h-5 w-5" />
+            </Button>
+          )}
         </div>
       </div>
       <div className="flex items-center justify-between mt-2">
@@ -44,11 +47,6 @@ export default function ChatInput({ prompt, setPrompt }: ChatInputProps) {
           </Button>
         </div>
         <div className="flex items-center gap-2">
-          <div className={prompt ? 'hidden' : 'flex items-center'}>
-            <Button variant="ghost" size="icon">
-              <Mic className="h-5 w-5" />
-            </Button>
-          </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="bg-secondary text-secondary-foreground rounded-full">
