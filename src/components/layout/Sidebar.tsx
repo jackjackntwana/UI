@@ -75,7 +75,7 @@ export default function Sidebar() {
                 className={cn(
                   'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
                   isActive
-                    ? 'bg-primary text-primary-foreground'
+                    ? 'text-yellow-500'
                     : 'hover:bg-accent hover:text-accent-foreground'
                 )}
               >
@@ -96,7 +96,7 @@ export default function Sidebar() {
                 className={cn(
                   'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
                   isActive
-                    ? 'bg-primary text-primary-foreground'
+                    ? 'text-yellow-500'
                     : 'hover:bg-accent hover:text-accent-foreground'
                 )}
               >
@@ -117,7 +117,7 @@ export default function Sidebar() {
                 className={cn(
                   'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
                   isActive
-                    ? 'bg-primary text-primary-foreground'
+                    ? 'text-yellow-500'
                     : 'hover:bg-accent hover:text-accent-foreground'
                 )}
               >
@@ -134,7 +134,7 @@ export default function Sidebar() {
             className={cn(
               'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
               pathname === '/settings'
-                ? 'bg-primary text-primary-foreground'
+                ? 'text-yellow-500'
                 : 'hover:bg-accent hover:text-accent-foreground'
             )}
           >
