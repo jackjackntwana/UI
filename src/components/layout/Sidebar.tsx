@@ -31,8 +31,8 @@ const coachItems = [
   { href: '/fitness-coach', icon: Dumbbell, label: 'Muzi (Fitness)', color: 'text-blue-500' },
   { href: '/mindfulness-coach', icon: HeartPulse, label: 'Zola (Mindfulness)', color: 'text-red-500' },
   { href: '/sleep-coach', icon: BedDouble, label: 'Amahle (Sleep)', color: 'text-purple-500' },
-  { href: '/clinical-coach', icon: Stethoscope, label: 'Clinical', color: 'text-cyan-500' },
-  { href: '/story-teller', icon: BookOpen, label: 'Storyteller', color: 'text-orange-500' },
+  { href: '/clinical-coach', icon: Stethoscope, label: 'Zandi (Clinical)', color: 'text-cyan-500' },
+  { href: '/story-teller', icon: BookOpen, label: 'Lebo (Storyteller)', color: 'text-orange-500' },
 ];
 
 const insightsItems = [
