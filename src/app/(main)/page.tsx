@@ -16,8 +16,8 @@ const allActionChips = [
 
 const greetings = [
     "Unjani, Tholumuzi?",
-    "Heita!",
-    "Sawubona! How can I help?",
+    "Heita, Tholumuzi!",
+    "Sawubona, Tholumuzi!",
     "Howzit, Tholumuzi?",
 ];
 
@@ -28,7 +28,7 @@ const getShuffledItems = <T,>(arr: T[], num = 6): T[] => {
 };
 
 export default function Home() {
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState('Unjani, Tholumuzi?');
   const [actionChips, setActionChips] = useState<typeof allActionChips>([]);
 
   useEffect(() => {

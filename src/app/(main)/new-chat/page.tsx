@@ -15,10 +15,10 @@ const allActionChips = [
 ];
 
 const greetings = [
-    "Ready for a new chat?",
-    "What's on your mind?",
-    "Let's talk.",
-    "How can I assist you now?",
+    "Ready for a new chat, Tholumuzi?",
+    "What's on your mind, Tholumuzi?",
+    "Let's talk, Tholumuzi.",
+    "How can I assist you now, Tholumuzi?",
 ];
 
 // Function to shuffle array and pick a few items
