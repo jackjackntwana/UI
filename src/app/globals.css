@@ -80,40 +80,26 @@ body {
   animation: fadeIn 0.5s ease-out forwards;
 }
 
-@keyframes color-cycle-text {
-  0%, 100% {
-    color: #4285F4; /* Google Blue */
-  }
-  25% {
-    color: #DB4437; /* Google Red */
-  }
-  50% {
-    color: #F4B400; /* Google Yellow */
-  }
-  75% {
-    color: #0F9D58; /* Google Green */
-  }
+@keyframes color-cycle {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.animate-color-cycle-text {
-  animation: color-cycle-text 8s linear infinite;
+.animate-gradient-text {
+  background: linear-gradient(90deg, #4285F4, #DB4437, #F4B400, #0F9D58, #4285F4);
+  background-size: 200% 200%;
+  animation: color-cycle 12s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-@keyframes color-cycle-border {
-  0%, 100% {
-    border-color: #4285F4; /* Google Blue */
-  }
-  25% {
-    border-color: #DB4437; /* Google Red */
-  }
-  50% {
-    border-color: #F4B400; /* Google Yellow */
-  }
-  75% {
-    border-color: #0F9D58; /* Google Green */
-  }
-}
-
-.animate-color-cycle-border {
-  animation: color-cycle-border 8s linear infinite;
+.animate-gradient-border {
+  border-width: 1px;
+  border-style: solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(90deg, #4285F4, #DB4437, #F4B400, #0F9D58, #4285F4);
+  background-size: 200% 200%;
+  animation: color-cycle 12s linear infinite;
 }

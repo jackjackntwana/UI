@@ -21,7 +21,7 @@ export default function Header() {
           {isMenuOpen ? <X /> : <Menu />}
         </Button>
         <Link href="/">
-          <h1 className="text-xl font-bold cursor-pointer">Gemini</h1>
+          <h1 className="text-xl font-bold cursor-pointer">Ubuntu</h1>
         </Link>
       </div>
 
