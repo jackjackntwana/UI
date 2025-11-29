@@ -7,7 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import {
-  Apple,
   Upload,
   User,
   HeartPulse,
@@ -22,11 +21,22 @@ import {
 import { Textarea } from '@/components/ui/textarea';
 
 const GoogleFitIcon = () => (
-    <svg className="w-5 h-5" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#4285F4" d="M93.31 21.65l-2.07 3.6-43.26 74.93-24.66 42.7-1.74 3-2.07-3.6 22.9-39.66 23.22-40.23 23.23-40.22 2.3-4L93.3 21.65z" />
-        <path fill="#34A853" d="M213.36 93.43l-45.02-77.98-2.3-4-2.06 3.6-43.6 75.52-44.68 77.38-2.07 3.6 2.3 4 67.23 42.33 2.53.95 2.07-3.6 44.35-76.81 22.93-39.71 1.72-3z" />
-        <path fill="#EA4335" d="M213.36 93.43l-2.07 3.6-67.27 116.5-24.93-43.18-44.68-77.38 2.07-3.6 43.6-75.52 2.3-4 2.06 3.6 45.02 77.98 44.8 77.98z" />
-        <path fill="#FBBC05" d="M72.98 233.53l-2.07-3.6-22.9-39.66-23.22-40.23L4.1 82.23l-2.07-3.6 2.3-4 44.68-77.38 2.07-3.6 2.07 3.6 67.27 116.5 24.93 43.18-44.35 76.81-2.53.95z" />
+    <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.64 5.93h.02a3.34 3.34 0 0 1-3.34-3.34h-.01a3.34 3.34 0 0 1 3.33 3.34z" fill="#4285f4"/>
+        <path d="M7.14 12.83a3.34 3.34 0 0 1 3.34-3.34h.01a3.34 3.34 0 0 1-3.35 3.34z" fill="#ea4335"/>
+        <path d="M12.8 2.59a3.34 3.34 0 0 1 3.33 3.34h-.01a3.34 3.34 0 0 1-3.32-3.34z" fill="#fbbc05"/>
+        <path d="M12.8 9.49a3.34 3.34 0 0 1 3.33 3.34h-.01a3.34 3.34 0 0 1-3.32-3.34z" fill="#34a853"/>
+        <path d="M15.3 12.83a4.51 4.51 0 0 1-4.51 4.51h-.02a4.51 4.51 0 0 1 4.53-4.51z" fill="#34a853"/>
+        <path d="M8.29 5.93a4.51 4.51 0 0 1 4.51 4.51h-.02a4.51 4.51 0 0 1-4.49-4.51z" fill="#fbbc05"/>
+        <path d="M17.31 4.71l-2.83 2.83a.47.47 0 0 1-.66 0l-.88-.88a.47.47 0 0 1 0-.66l2.83-2.83a.47.47 0 0 1 .66 0l.88.88a.47.47 0 0 1 0 .66z" fill="#ea4335"/>
+        <path d="M12.03 21.05a5.64 5.64 0 0 1-5.63-5.64h.01a5.64 5.64 0 0 1 5.62 5.64z" fill="#4285f4"/>
+        <path d="M4.09 13.62a.47.47 0 0 1 0-.66l.88-.88a.47.47 0 0 1 .66 0l2.83 2.83a.47.47 0 0 1 0 .66l-.88.88a.47.47 0 0 1-.66 0z" fill="#4285f4"/>
+    </svg>
+);
+
+const AppleHealthIcon = () => (
+    <svg className="w-6 h-6 mr-2" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FF586A" fillRule="evenodd" d="M10.655 2.494a.5.5 0 0 0-.848-.358L5.47 6.438A5.474 5.474 0 0 0 4 9.87v.002a5.474 5.474 0 0 0 5.473 5.472A5.474 5.474 0 0 0 14.945 9.87a5.474 5.474 0 0 0-1.468-3.43L10.99 3.51a.5.5 0 0 0-.335-1.016zM9.53 8.31a.5.5 0 0 1 .71.026l.75 1a.5.5 0 0 1-.736.688l-.75-1a.5.5 0 0 1 .026-.714zM11.97 8.31a.5.5 0 0 0-.71.026l-1.5 2a.5.5 0 0 0 .736.688l1.5-2a.5.5 0 0 0-.026-.714z"/>
     </svg>
 );
 
@@ -156,7 +166,7 @@ export default function ProfilePage() {
                 <GoogleFitIcon /> Connect Google Fit
            </Button>
            <Button variant="outline" className="justify-start p-6 text-lg rounded-none shadow-sm">
-                <Apple /> Connect Apple Health
+                <AppleHealthIcon /> Connect Apple Health
            </Button>
            <Button variant="outline" className="justify-start p-6 text-lg rounded-none shadow-sm">
                 <Watch /> Connect Smartwatch
