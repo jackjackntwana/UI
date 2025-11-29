@@ -11,7 +11,7 @@ export default function GeminiChat() {
       <div className="flex-1 flex flex-col justify-center items-center pb-16">
         <div className="w-full">
           <div className="flex-1 flex items-center justify-center">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-400 inline-block text-transparent bg-clip-text mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-400 inline-block text-transparent bg-clip-text mb-8 animate-color-cycle-text">
               Hello, Tholumuzi
             </h1>
           </div>

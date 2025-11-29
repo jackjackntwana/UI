@@ -79,3 +79,41 @@ body {
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
+
+@keyframes color-cycle-text {
+  0%, 100% {
+    color: #4285F4; /* Google Blue */
+  }
+  25% {
+    color: #DB4437; /* Google Red */
+  }
+  50% {
+    color: #F4B400; /* Google Yellow */
+  }
+  75% {
+    color: #0F9D58; /* Google Green */
+  }
+}
+
+.animate-color-cycle-text {
+  animation: color-cycle-text 8s linear infinite;
+}
+
+@keyframes color-cycle-border {
+  0%, 100% {
+    border-color: #4285F4; /* Google Blue */
+  }
+  25% {
+    border-color: #DB4437; /* Google Red */
+  }
+  50% {
+    border-color: #F4B400; /* Google Yellow */
+  }
+  75% {
+    border-color: #0F9D58; /* Google Green */
+  }
+}
+
+.animate-color-cycle-border {
+  animation: color-cycle-border 8s linear infinite;
+}
