@@ -1,8 +1,8 @@
 'use client';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
-import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartStyle } from '@/components/ui/chart';
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Line, LineChart } from 'recharts';
-import { CalendarCheck, TrendingUp, Activity, Bed, Smile } from 'lucide-react';
+import { CalendarCheck, TrendingUp, Activity, Bed } from 'lucide-react';
 
 const chartConfig = {
   steps: { label: 'Steps', color: 'hsl(var(--chart-1))' },
@@ -52,7 +52,6 @@ export default function WeeklySummaryPage() {
           <CardDescription>A look at your activity, sleep, and symptom trends from the past week.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
-
             <Card>
                 <CardHeader>
                     <CardTitle className="flex items-center"><Activity className="mr-2"/>Activity</CardTitle>
@@ -106,8 +105,6 @@ export default function WeeklySummaryPage() {
                     </ChartContainer>
                 </CardContent>
             </Card>
-
-
         </CardContent>
       </Card>
     </div>
