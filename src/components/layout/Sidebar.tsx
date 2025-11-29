@@ -19,6 +19,7 @@ import {
   BellRing,
   Activity,
   Notebook,
+  User,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -129,7 +130,19 @@ export default function Sidebar() {
           })}
         </nav>
       </ScrollArea>
-      <div className="border-t mt-auto p-2">
+      <div className="border-t mt-auto p-2 space-y-1">
+          <Link
+            href="/profile"
+            className={cn(
+              'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+              pathname === '/profile'
+                ? 'animate-gradient-text'
+                : 'hover:bg-accent hover:text-accent-foreground'
+            )}
+          >
+            <User className="h-5 w-5" />
+            {!isCollapsed && <span>Profile</span>}
+          </Link>
           <Link
             href="/settings"
             className={cn(
