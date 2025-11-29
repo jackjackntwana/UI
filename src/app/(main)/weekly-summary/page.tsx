@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import {
   LineChart,
   Line,
@@ -14,7 +15,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { Share2 } from 'lucide-react';
+import { Share2, Fish, Flame } from 'lucide-react';
 import { generateProviderSummary } from '@/ai/flows/generate-provider-summary';
 
 const vitalData = [
@@ -69,25 +70,26 @@ const vitalData = [
   },
 ];
 
-const sleepData = [
-  { name: 'Mon', hours: 7.5 },
-  { name: 'Tue', hours: 7 },
-  { name: 'Wed', hours: 8 },
-  { name: 'Thu', hours: 6.5 },
-  { name: 'Fri', hours: 7 },
-  { name: 'Sat', hours: 8.5 },
-  { name: 'Sun', hours: 8 },
+const bloodPressureData = vitalData.map(d => {
+    const [systolic, diastolic] = d['Blood Pressure'].split('/').map(Number);
+    return { name: d.day, systolic, diastolic };
+});
+
+const sleepData = vitalData.map(d => ({ name: d.day, hours: d.Sleep }));
+
+const moodData = vitalData.map(d => ({ name: d.day, score: d['Mood Score'] }));
+
+const dietLog = [
+  { time: '8:00 AM', meal: 'Breakfast', item: 'Oatmeal with berries', calories: 350 },
+  { time: '1:00 PM', meal: 'Lunch', item: 'Grilled Chicken Salad', calories: 450 },
+  { time: '7:30 PM', meal: 'Dinner', item: 'Salmon with Quinoa', calories: 550 },
 ];
 
-const moodData = [
-    { name: 'Mon', score: 8 },
-    { name: 'Tue', score: 7 },
-    { name: 'Wed', score: 9 },
-    { name: 'Thu', score: 6 },
-    { name: 'Fri', score: 8 },
-    { name: 'Sat', score: 9 },
-    { name: 'Sun', score: 9 },
+const activityLog = [
+    { time: '9:30 AM', activity: 'Brisk Walk', duration: '30 min', calories: 150 },
+    { time: '5:30 PM', activity: 'Yoga', duration: '45 min', calories: 200 },
 ];
+
 
 export default function WeeklySummaryPage() {
   const [providerSummary, setProviderSummary] = useState('');
@@ -95,10 +97,10 @@ export default function WeeklySummaryPage() {
   const handleGenerateSummary = async () => {
     try {
         const summary = await generateProviderSummary({
-            healthNarrative: 'The user has been managing their asthma and reports feeling generally well this week, with some fluctuations in mood and sleep.',
+            healthNarrative: 'The user has been managing their asthma and reports feeling generally well this week, with some fluctuations in mood, sleep, and blood pressure.',
             vitalSigns: JSON.stringify(vitalData, null, 2),
             medicationList: 'Albuterol (as needed), Fluticasone (daily)',
-            keyEvents: 'One instance of increased shortness of breath on Thursday, possibly related to poor sleep and higher pollen counts.'
+            keyEvents: `One instance of increased shortness of breath on Thursday, possibly related to poor sleep and higher pollen counts. Diet has been consistent. Activity includes daily walks and yoga. Full logs attached. Diet Log: ${JSON.stringify(dietLog, null, 2)}. Activity Log: ${JSON.stringify(activityLog, null, 2)}`
         });
         setProviderSummary(summary.providerSummary);
     } catch (error) {
@@ -136,6 +138,26 @@ export default function WeeklySummaryPage() {
           </CardContent>
         </Card>
       )}
+      
+      <Card className="rounded-none shadow-md">
+          <CardHeader>
+            <CardTitle>Blood Pressure (mmHg)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ResponsiveContainer width="100%" height={300}>
+              <LineChart data={bloodPressureData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis label={{ value: 'mmHg', angle: -90, position: 'insideLeft' }} domain={['dataMin - 5', 'dataMax + 5']} />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="systolic" stroke="hsl(var(--chart-1))" strokeWidth={2} />
+                <Line type="monotone" dataKey="diastolic" stroke="hsl(var(--chart-2))" strokeWidth={2} />
+              </LineChart>
+            </ResponsiveContainer>
+          </CardContent>
+        </Card>
+
 
       <div className="grid md:grid-cols-2 gap-8">
         <Card className="rounded-none shadow-md">
@@ -173,6 +195,62 @@ export default function WeeklySummaryPage() {
           </CardContent>
         </Card>
       </div>
+      
+       <Card className="rounded-none shadow-md">
+            <CardHeader>
+                <CardTitle className="flex items-center"><Fish className="mr-2 h-5 w-5" />Weekly Diet Log</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <Table>
+                <TableHeader>
+                    <TableRow>
+                    <TableHead>Time</TableHead>
+                    <TableHead>Meal</TableHead>
+                    <TableHead>Item</TableHead>
+                    <TableHead className="text-right">Calories</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {dietLog.map((item, index) => (
+                    <TableRow key={index} className="hover:bg-primary/10 transition-colors">
+                        <TableCell>{item.time}</TableCell>
+                        <TableCell>{item.meal}</TableCell>
+                        <TableCell className="font-medium">{item.item}</TableCell>
+                        <TableCell className="text-right">{item.calories}</TableCell>
+                    </TableRow>
+                    ))}
+                </TableBody>
+                </Table>
+            </CardContent>
+        </Card>
+        
+        <Card className="rounded-none shadow-md">
+            <CardHeader>
+                <CardTitle className="flex items-center"><Flame className="mr-2 h-5 w-5" />Weekly Activity Log</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <Table>
+                <TableHeader>
+                    <TableRow>
+                    <TableHead>Time</TableHead>
+                    <TableHead>Activity</TableHead>
+                    <TableHead>Duration</TableHead>
+                    <TableHead className="text-right">Calories Burned (est.)</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {activityLog.map((item, index) => (
+                    <TableRow key={index} className="hover:bg-primary/10 transition-colors">
+                        <TableCell>{item.time}</TableCell>
+                        <TableCell className="font-medium">{item.activity}</TableCell>
+                        <TableCell>{item.duration}</TableCell>
+                        <TableCell className="text-right">{item.calories}</TableCell>
+                    </TableRow>
+                    ))}
+                </TableBody>
+                </Table>
+            </CardContent>
+        </Card>
     </div>
   );
 }

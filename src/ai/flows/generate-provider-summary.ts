@@ -15,7 +15,7 @@ const GenerateProviderSummaryInputSchema = z.object({
   healthNarrative: z.string().describe('The user health narrative.'),
   vitalSigns: z.string().describe('The latest vital signs of the user.'),
   medicationList: z.string().describe('The list of medications the user is taking.'),
-  keyEvents: z.string().describe('A summary of key health events in the user history.'),
+  keyEvents: z.string().describe('A summary of key health events in the user history, including diet and activity.'),
 });
 export type GenerateProviderSummaryInput = z.infer<typeof GenerateProviderSummaryInputSchema>;
 
@@ -39,7 +39,7 @@ const prompt = ai.definePrompt({
   Patient Health Narrative: {{{healthNarrative}}}
   Vital Signs: {{{vitalSigns}}}
   Medication List: {{{medicationList}}}
-  Key Health Events: {{{keyEvents}}}
+  Key Health Events, Diet, and Activity: {{{keyEvents}}}
   `,
 });
 
