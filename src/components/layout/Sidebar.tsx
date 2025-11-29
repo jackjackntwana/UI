@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -41,6 +42,7 @@ const insightsItems = [
   { href: '/alerts', icon: BellRing, label: 'Alerts & Reminders', color: 'text-red-500' },
   { href: '/symptom-tracking', icon: Activity, label: 'Symptom Tracking', color: 'text-green-500' },
   { href: '/diet-log', icon: Notebook, label: 'Diet & Activity Log', color: 'text-blue-500' },
+  { href: '/weekly-summary', icon: CalendarCheck, label: 'Weekly Summary', color: 'text-purple-500' },
 ]
 
 export default function Sidebar() {
