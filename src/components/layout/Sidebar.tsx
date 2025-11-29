@@ -37,7 +37,6 @@ const coachItems = [
 
 const insightsItems = [
   { href: '/medication', icon: Pill, label: 'Medication', color: 'text-indigo-500' },
-  { href: '/weekly-summary', icon: CalendarCheck, label: 'Weekly Summary', color: 'text-pink-500' },
   { href: '/latest-news', icon: Newspaper, label: 'Latest News', color: 'text-yellow-500' },
   { href: '/alerts', icon: BellRing, label: 'Alerts & Reminders', color: 'text-red-500' },
   { href: '/symptom-tracking', icon: Activity, label: 'Symptom Tracking', color: 'text-green-500' },
