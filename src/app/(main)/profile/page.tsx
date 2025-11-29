@@ -20,27 +20,6 @@ import {
 } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 
-const GoogleFitIcon = () => (
-    <svg className="w-6 h-6 mr-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11.64 5.93h.02a3.34 3.34 0 0 1-3.34-3.34h-.01a3.34 3.34 0 0 1 3.33 3.34z" fill="#4285f4"/>
-        <path d="M7.14 12.83a3.34 3.34 0 0 1 3.34-3.34h.01a3.34 3.34 0 0 1-3.35 3.34z" fill="#ea4335"/>
-        <path d="M12.8 2.59a3.34 3.34 0 0 1 3.33 3.34h-.01a3.34 3.34 0 0 1-3.32-3.34z" fill="#fbbc05"/>
-        <path d="M12.8 9.49a3.34 3.34 0 0 1 3.33 3.34h-.01a3.34 3.34 0 0 1-3.32-3.34z" fill="#34a853"/>
-        <path d="M15.3 12.83a4.51 4.51 0 0 1-4.51 4.51h-.02a4.51 4.51 0 0 1 4.53-4.51z" fill="#34a853"/>
-        <path d="M8.29 5.93a4.51 4.51 0 0 1 4.51 4.51h-.02a4.51 4.51 0 0 1-4.49-4.51z" fill="#fbbc05"/>
-        <path d="M17.31 4.71l-2.83 2.83a.47.47 0 0 1-.66 0l-.88-.88a.47.47 0 0 1 0-.66l2.83-2.83a.47.47 0 0 1 .66 0l.88.88a.47.47 0 0 1 0 .66z" fill="#ea4335"/>
-        <path d="M12.03 21.05a5.64 5.64 0 0 1-5.63-5.64h.01a5.64 5.64 0 0 1 5.62 5.64z" fill="#4285f4"/>
-        <path d="M4.09 13.62a.47.47 0 0 1 0-.66l.88-.88a.47.47 0 0 1 .66 0l2.83 2.83a.47.47 0 0 1 0 .66l-.88.88a.47.47 0 0 1-.66 0z" fill="#4285f4"/>
-    </svg>
-);
-
-const AppleHealthIcon = () => (
-    <svg className="w-6 h-6 mr-2" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#FF586A" fillRule="evenodd" d="M10.655 2.494a.5.5 0 0 0-.848-.358L5.47 6.438A5.474 5.474 0 0 0 4 9.87v.002a5.474 5.474 0 0 0 5.473 5.472A5.474 5.474 0 0 0 14.945 9.87a5.474 5.474 0 0 0-1.468-3.43L10.99 3.51a.5.5 0 0 0-.335-1.016zM9.53 8.31a.5.5 0 0 1 .71.026l.75 1a.5.5 0 0 1-.736.688l-.75-1a.5.5 0 0 1 .026-.714zM11.97 8.31a.5.5 0 0 0-.71.026l-1.5 2a.5.5 0 0 0 .736.688l1.5-2a.5.5 0 0 0-.026-.714z"/>
-    </svg>
-);
-
-
 export default function ProfilePage() {
   const [setupMethod, setSetupMethod] = useState<'ai' | 'manual' | 'upload' | null>(null);
 
@@ -162,14 +141,14 @@ export default function ProfilePage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-           <Button variant="outline" className="justify-start p-6 text-lg rounded-none shadow-sm">
-                <GoogleFitIcon /> Connect Google Fit
+           <Button variant="outline" className="justify-center p-6 text-lg rounded-none shadow-sm">
+                Connect Google Fit
            </Button>
-           <Button variant="outline" className="justify-start p-6 text-lg rounded-none shadow-sm">
-                <AppleHealthIcon /> Connect Apple Health
+           <Button variant="outline" className="justify-center p-6 text-lg rounded-none shadow-sm">
+                Connect Apple Health
            </Button>
-           <Button variant="outline" className="justify-start p-6 text-lg rounded-none shadow-sm">
-                <Watch /> Connect Smartwatch
+           <Button variant="outline" className="justify-center p-6 text-lg rounded-none shadow-sm">
+                Connect Smartwatch
            </Button>
         </CardContent>
       </Card>
