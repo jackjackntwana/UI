@@ -1,13 +1,13 @@
 import { Button } from '@/components/ui/button';
-import { Lightbulb, Pencil, Code, Search, Film } from 'lucide-react';
+import { Carrot, Dumbbell, TrendingUp, FileText, ChefHat, BrainCircuit } from 'lucide-react';
 
 const actions = [
-  { label: 'Suggest ideas', icon: Lightbulb },
-  { label: 'Draft a story', icon: Pencil },
-  { label: 'Code something', icon: Code },
-  { label: 'Research a topic', icon: Search },
-  { label: 'Make a video', icon: Film },
-  { label: 'Help me learn', icon: Lightbulb },
+  { label: 'Suggest a diet', icon: Carrot },
+  { label: 'Create a workout plan', icon: Dumbbell },
+  { label: 'Track my progress', icon: TrendingUp },
+  { label: 'Explain a condition', icon: FileText },
+  { label: 'Generate a recipe', icon: ChefHat },
+  { label: 'Teach me about mindfulness', icon: BrainCircuit },
 ];
 
 export default function ActionChips() {

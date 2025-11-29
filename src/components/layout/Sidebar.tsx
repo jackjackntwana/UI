@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, Edit, Settings, Dumbbell, Carrot, Smile, Bed } from 'lucide-react';
+import { Menu, Edit, Settings, Dumbbell, Leaf, HeartPulse, Bed } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -13,10 +13,10 @@ const navItems = [
 ];
 
 const coachItems = [
-  { href: '/diet-coach', icon: Carrot, label: 'Thabo (Diet)' },
-  { href: '/fitness-coach', icon: Dumbbell, label: 'Muzi (Fitness)' },
-  { href: '/mindfulness-coach', icon: Smile, label: 'Zola (Mindfulness)' },
-  { href: '/sleep-coach', icon: Bed, label: 'Amahle (Sleep)' },
+  { href: '/diet-coach', icon: Leaf, label: 'Thabo (Diet)', color: 'text-green-500' },
+  { href: '/fitness-coach', icon: Dumbbell, label: 'Muzi (Fitness)', color: 'text-blue-500' },
+  { href: '/mindfulness-coach', icon: HeartPulse, label: 'Zola (Mindfulness)', color: 'text-red-500' },
+  { href: '/sleep-coach', icon: Bed, label: 'Amahle (Sleep)', color: 'text-purple-500' },
 ]
 
 export default function Sidebar() {
@@ -74,7 +74,7 @@ export default function Sidebar() {
                   : 'hover:bg-accent hover:text-accent-foreground'
               )}
             >
-              <item.icon className="h-5 w-5" />
+              <item.icon className={cn('h-5 w-5', item.color)} />
               {!isCollapsed && <span>{item.label}</span>}
             </Link>
           );
