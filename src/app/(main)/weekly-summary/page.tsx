@@ -3,10 +3,9 @@
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Line, LineChart } from 'recharts';
-import { TrendingUp, Activity, Bed } from 'lucide-react';
+import { TrendingUp, Activity, Bed, BrainCircuit } from 'lucide-react';
 import { generatePersonalizedHealthNarrative } from '@/ai/flows/generate-personalized-health-narrative';
 import { useState, useEffect } from 'react';
-import { BrainCircuit } from 'lucide-react';
 
 const chartConfig = {
   steps: { label: 'Steps', color: 'hsl(var(--chart-1))' },
@@ -48,7 +47,7 @@ export default function WeeklySummaryPage() {
     const [narrative, setNarrative] = useState<string | null>(null);
 
     useEffect(() => {
-        async function getNarrative() {
+        const getNarrative = async () => {
             try {
                 const res = await generatePersonalizedHealthNarrative({
                     vitals: { bloodPressure: "122/80", glucose: "95 mg/dL", sleep: "Avg. 7.2 hours", moodScore: "8/10" },
@@ -65,7 +64,7 @@ export default function WeeklySummaryPage() {
                 console.error("Error fetching health narrative:", error);
                 setNarrative("Could not load AI health narrative. Please check your connection and try again.");
             }
-        }
+        };
         getNarrative();
     }, []);
 
