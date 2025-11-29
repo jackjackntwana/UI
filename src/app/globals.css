@@ -96,10 +96,22 @@ body {
 }
 
 .animate-gradient-border {
-  border-width: 1px;
-  border-style: solid;
-  border-image-slice: 1;
-  border-image-source: linear-gradient(90deg, #4285F4, #DB4437, #F4B400, #0F9D58, #4285F4);
+  position: relative;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.animate-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -1px; /* The width of the border */
+  border-radius: inherit; /* Follow the parent's border radius */
+  background: linear-gradient(90deg, #4285F4, #DB4437, #F4B400, #0F9D58, #4285F4);
   background-size: 200% 200%;
   animation: color-cycle 12s linear infinite;
 }
