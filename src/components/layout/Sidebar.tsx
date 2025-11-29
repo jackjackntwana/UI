@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, Edit, Settings, Dumbbell, Leaf, HeartPulse, Bed } from 'lucide-react';
+import { Menu, Edit, Settings, Dumbbell, Leaf, HeartPulse, BedDouble } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -16,7 +16,7 @@ const coachItems = [
   { href: '/diet-coach', icon: Leaf, label: 'Thabo (Diet)', color: 'text-green-500' },
   { href: '/fitness-coach', icon: Dumbbell, label: 'Muzi (Fitness)', color: 'text-blue-500' },
   { href: '/mindfulness-coach', icon: HeartPulse, label: 'Zola (Mindfulness)', color: 'text-red-500' },
-  { href: '/sleep-coach', icon: Bed, label: 'Amahle (Sleep)', color: 'text-purple-500' },
+  { href: '/sleep-coach', icon: BedDouble, label: 'Amahle (Sleep)', color: 'text-purple-500' },
 ]
 
 export default function Sidebar() {
