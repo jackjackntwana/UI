@@ -2,12 +2,12 @@ import { Button } from '@/components/ui/button';
 import { Lightbulb, Pencil, Code, Search, Film } from 'lucide-react';
 
 const actions = [
-  { label: 'Create Image', icon: Lightbulb },
-  { label: 'Write', icon: Pencil },
-  { label: 'Build', icon: Code },
-  { label: 'Deep Research', icon: Search },
-  { label: 'Create Video', icon: Film },
-  { label: 'Learn', icon: Lightbulb },
+  { label: 'Suggest ideas', icon: Lightbulb },
+  { label: 'Draft a story', icon: Pencil },
+  { label: 'Code something', icon: Code },
+  { label: 'Research a topic', icon: Search },
+  { label: 'Make a video', icon: Film },
+  { label: 'Help me learn', icon: Lightbulb },
 ];
 
 export default function ActionChips() {

@@ -8,7 +8,6 @@ import {
   Zap,
   BrainCircuit,
   Search,
-  Shield,
 } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
@@ -26,7 +25,7 @@ type ChatInputProps = {
 
 export default function ChatInput({ prompt, setPrompt }: ChatInputProps) {
   return (
-    <div className="bg-card p-4 rounded-xl shadow-lg border animate-gradient-border transition-all duration-500 w-full">
+    <div className="bg-card p-4 rounded-2xl shadow-lg border animate-gradient-border transition-all duration-500 w-full">
       <div className="relative flex items-center">
         <Textarea
           value={prompt}
@@ -72,15 +71,18 @@ export default function ChatInput({ prompt, setPrompt }: ChatInputProps) {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          {prompt ? (
-            <Button size="icon" variant="ghost">
-              <Send className="h-5 w-5" />
-            </Button>
-          ) : (
-            <Button variant="ghost" size="icon">
-              <Mic className="h-5 w-5" />
-            </Button>
-          )}
+          
+          <div className="flex items-center">
+            {prompt ? (
+              <Button size="icon" variant="ghost">
+                <Send className="h-5 w-5" />
+              </Button>
+            ) : (
+              <Button variant="ghost" size="icon">
+                <Mic className="h-5 w-5" />
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </div>

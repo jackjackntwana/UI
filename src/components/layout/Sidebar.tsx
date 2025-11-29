@@ -2,11 +2,10 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, Edit, Settings, Dumbbell, Heart, Brain, Bed } from 'lucide-react';
+import { Menu, Edit, Settings, Dumbbell, Carrot, Smile, Bed } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-import { Separator } from '@/components/ui/separator';
 
 const navItems = [
   { href: '/new-chat', icon: Edit, label: 'New Chat' },
@@ -14,9 +13,9 @@ const navItems = [
 ];
 
 const coachItems = [
-  { href: '/diet-coach', icon: Heart, label: 'Thabo (Diet)' },
+  { href: '/diet-coach', icon: Carrot, label: 'Thabo (Diet)' },
   { href: '/fitness-coach', icon: Dumbbell, label: 'Muzi (Fitness)' },
-  { href: '/mindfulness-coach', icon: Brain, label: 'Zola (Mindfulness)' },
+  { href: '/mindfulness-coach', icon: Smile, label: 'Zola (Mindfulness)' },
   { href: '/sleep-coach', icon: Bed, label: 'Amahle (Sleep)' },
 ]
 
@@ -60,7 +59,7 @@ export default function Sidebar() {
           );
         })}
         
-        {!isCollapsed && <div className="px-3 py-2 text-xs font-semibold text-muted-foreground">Your Coaches</div>}
+        {!isCollapsed && <div className="px-3 py-2 text-xs font-semibold text-muted-foreground">Your Health Coaches</div>}
         
         {coachItems.map((item) => {
           const isActive = pathname === item.href;
