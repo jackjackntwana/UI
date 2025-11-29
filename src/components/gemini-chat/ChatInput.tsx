@@ -30,7 +30,7 @@ export default function ChatInput({ prompt, setPrompt }: ChatInputProps) {
         <Textarea
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          placeholder="Enter a prompt here"
+          placeholder="What's on your mind? Let's talk about your health."
           className="bg-transparent border-0 pr-12 resize-none focus-visible:ring-0 text-base"
           rows={1}
         />
